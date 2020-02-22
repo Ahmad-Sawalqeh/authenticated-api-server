@@ -7,7 +7,7 @@
 ### Links and Resources
 
 - [submission PR](https://github.com/Ahmad-Sawalqeh/authenticated-api-server/pull/1)
-- [ci/cd]() (GitHub Actions)
+- [ci/cd](https://github.com/Ahmad-Sawalqeh/authenticated-api-server/runs/462478228?check_suite_focus=true) (GitHub Actions)
 
 ### Setup
 run `npm i` to install the needed Dependencies `JEST, ESLINT, CORS, DOTENV, MORGAN, MONGOOSE, EXPRESS, superagent, @code-fellows/supergoose`.<br>
