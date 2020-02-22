@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>lab12</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <section class="container">
+    <h1>API Server with OAuth Application</h1>
+    <div>one click to sign-in using your <span class="fac">facebook</span> <span class="acc">Account</span> <a id="oauth" href="#" class="facebook" >click here</a></div>
+  </section>
+  <section class="container">
+    <div>one click to sign-in using your <span class="git">github</span> <span class="acc">Account</span> <a id="githubOauth" href="#" class="github" >click here</a></div>
+  </section>
+</body>
+<script>
+  // facebook
+  let FACEBOOK_App_ID = '520042838644247';
+  // let FACEBOOK_App_Secret = '672eea6cc59210a304c8239f1e6aa835';
+
+  let FACE_URL = 'https://www.facebook.com/v6.0/dialog/oauth';
+  let faceOptions = {
+      client_id: FACEBOOK_App_ID,
+      redirect_uri: 'http://localhost:3000/oauth',
+      scope: ['email', 'user_friends'].join(','),
+      response_type: 'code',
+      // response_type: 'token',
+      auth_type: 'rerequest',
+      // display: 'popup',
+      // scope: 'read:user',
+      state: '401project'
+  } 
+  let faceQueryString = Object.keys(faceOptions).map(key => {
+      return `${key}=` + encodeURIComponent(faceOptions[key]);
+  }).join('&');
+  let faceAuthURL = `${FACE_URL}?${faceQueryString}`;
+  let faceLink = document.getElementById('oauth');
+  faceLink.setAttribute('href', faceAuthURL);
+
+  // github
+  let GITHUB_CLIENT_ID = '6adabe1798d74605bcd7';
+
+  let GITHUB_URL = 'https://github.com/login/oauth/authorize';
+  let githubOptions = {
+      client_id: GITHUB_CLIENT_ID,
+      redirect_uri: 'http://localhost:3000/githubOauth',
+      scope: 'read:user',
+      state: '401appconsent'
+  }
+  let githubQueryString = Object.keys(githubOptions).map(key => {
+      return `${key}=` + encodeURIComponent(githubOptions[key]);
+  }).join('&');
+
+  let gitAuthURL = `${GITHUB_URL}?${githubQueryString}`;
+
+  let gitLink = document.getElementById('githubOauth');
+
+  gitLink.setAttribute('href', gitAuthURL)
+</script>
+</html>

@@ -1,0 +1,66 @@
+*{
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container{
+  width: 970px;
+  padding: 20px;
+  text-align: center;
+}
+h1{
+  font: 50px;
+  margin-bottom: 30px;
+}
+div{
+  font-size: 25px;  
+  font-weight: 18px;
+}
+.facebook{
+  text-decoration: none;
+  padding: 3px 8px;
+  font-size: 30px;
+  font-weight: 40px;
+  color: #4078c0;
+  transition: .2s;
+}
+.facebook:hover{
+  padding: 3px 8px;
+  color: #fff;
+  background-color: #3b5998;
+  border-radius: 5px;
+}
+.fac{
+  padding: 3px 8px;
+  color: #fff;
+  font-size: 30px;
+  font-weight: 25px;
+  background-color: #3b5998;
+  border-radius: 5px;
+}
+.acc{
+  color: #333;
+}
+
+.git{
+  padding: 3px 8px;
+  color: #fff;
+  font-size: 30px;
+  font-weight: 25px;
+  background-color: #6cc644;
+  border-radius: 5px;
+}
+.github{
+  text-decoration: none;
+  padding: 3px 8px;
+  font-size: 30px;
+  font-weight: 40px;
+  color: #6cc644;
+  transition: .2s;
+}
+.github:hover{
+  padding: 3px 8px;
+  color: #000;
+  background-color: #6cc644;
+  border-radius: 5px;
+}
