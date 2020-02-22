@@ -1,0 +1,254 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "class15-DynamicRoutes",
+    "version": "1",
+    "title": "dynamicRoutes",
+    "host": "localhost:3000",
+    "basePath": "/api/v1",
+    "paths": "/{model}"
+  },
+  "paths": {
+    "/api/v1/categories/5e3daf6e6ea6970474896ac6": {
+      "put": {
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/Model0"
+            },
+            "x-examples": {
+              "application/json": "{\r\n  \"name\": \"small phone\",\r\n  \"display_name\": \"A10\",\r\n  \"description\": \"has 1 cameras\"\r\n}"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Replace a item with the specific id and updatedObject in the given model",
+            "schema": {
+              "$ref": "#/definitions/Model8"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/products/5e3db2466ea6970474896ac7": {
+      "delete": {
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/Model2"
+            },
+            "x-examples": {
+              "application/json": "{\r\n  \"name\": \"small phone\",\r\n  \"display_name\": \"A10\",\r\n  \"description\": \"has 1 cameras\"\r\n}"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Delete a item with the specific id in the given model",
+            "schema": {
+              "$ref": "#/definitions/Model9"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/products": {
+      "post": {
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/Model3"
+            },
+            "x-examples": {
+              "application/json": "{\r\n  \"name\": \"cellphone\",\r\n  \"display_name\": \"M20\",\r\n  \"description\": \"has 2 cameras\",\r\n  \"category\": \"phones\"\r\n}"
+            }
+          },
+          {
+            "name": "modelName(param0)",
+            "in": "path",
+            "description": "Example values form path are: 'products' and 'categories'",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Create a new item in the given model",
+            "schema": {
+              "$ref": "#/definitions/Model4"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/categories": {
+      "get": {
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "ModelName(param1)",
+            "in": "path",
+            "description": "Example values form path are: 'products' and 'categories'",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returned all items or one item in the given model",
+            "schema": {
+              "$ref": "#/definitions/Model6"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Model0": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "display_name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "Model2": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "display_name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "Model3": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "display_name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        }
+      }
+    },
+    "Model4": {
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "display_name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "__v": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "Results": {
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "display_name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "__v": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "Model6": {
+      "properties": {
+        "count": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Results"
+          }
+        }
+      }
+    },
+    "Model8": {
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "display_name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "__v": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "Model9": {
+      "properties": {
+        "confirm": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
